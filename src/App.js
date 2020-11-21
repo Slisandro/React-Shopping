@@ -23,7 +23,7 @@ class App extends React.Component {
         <main>
           <div className="content"> 
             <div className="main">
-              <Products products={this.props.products} />
+              <Products products={this.state.products} />
             </div>
             <div className="sidebar">
               Cart Items

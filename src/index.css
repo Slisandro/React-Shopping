@@ -136,6 +136,6 @@ footer {
   border: .1rem #808080 solid;
 }
 
-.button-primary {
+.button.primary {
   background: #f0c040;
 }
