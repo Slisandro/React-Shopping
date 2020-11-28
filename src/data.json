@@ -6,7 +6,7 @@
             "description": "about dress 1",
             "image": "/images/dress1.jpg",
             "price": 19,
-            "availablesSizes": ["X","L","XL", "XXL"]
+            "availablesSizes": ["X","S","XL", "XXL"]
         },
         {
             "_id": "dress2",
