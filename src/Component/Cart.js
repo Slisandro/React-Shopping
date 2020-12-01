@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import formatCurrency from '../util';
 
 export default class Cart extends Component {
+
     
     constructor (props) {
         super(props);
@@ -77,6 +78,7 @@ export default class Cart extends Component {
                             ))}
                         </ul>
                     </div>
+
                     {cartItems.length !== 0 && (
                         <div>
                             <div className="cart">
@@ -144,6 +146,22 @@ export default class Cart extends Component {
                         </div>
                     )}
                 </div>
+            </div>
+        )
+    }
+}
+                </div>
+                {cartItems.length !== 0 && (
+                    <div className="cart">
+                    <div className="total">
+                        Total: {" "}
+                        {formatCurrency(
+                            cartItems.reduce((a,c) => a + c.price * c.count, 0)
+                        )} 
+                        <button className="button primary">Proceed</button>
+                    </div>
+                </div>
+                )}
             </div>
         )
     }
