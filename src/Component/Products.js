@@ -92,6 +92,3 @@ export default class Products extends Component {
         )
     }
 }
-
-}
-

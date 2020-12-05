@@ -155,19 +155,19 @@ export default class Cart extends Component {
         )
     }
 }
-                </div>
-                {cartItems.length !== 0 && (
-                    <div className="cart">
-                    <div className="total">
-                        Total: {" "}
-                        {formatCurrency(
-                            cartItems.reduce((a,c) => a + c.price * c.count, 0)
-                        )} 
-                        <button className="button primary">Proceed</button>
-                    </div>
-                </div>
-                )}
-            </div>
-        )
-    }
-}
+//                 </div>
+//                 {cartItems.length !== 0 && (
+//                     <div className="cart">
+//                     <div className="total">
+//                         Total: {" "}
+//                         {formatCurrency(
+//                             cartItems.reduce((a,c) => a + c.price * c.count, 0)
+//                         )} 
+//                         <button className="button primary">Proceed</button>
+//                     </div>
+//                 </div>
+//                 )}
+//             </div>
+//         )
+//     }
+// }
