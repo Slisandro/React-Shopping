@@ -3,8 +3,8 @@ import data from './data.json';
 import Products from './Component/Products';
 import Filter from './Component/Filter';
 import Cart from './Component/Cart';
-
-
+import store from "./store";
+import {Provider} from "react-redux";
 
 class App extends React.Component {
   
@@ -16,7 +16,7 @@ class App extends React.Component {
       cartItems: localStorage.getItem("cartItems") 
       ? JSON.parse(localStorage.getItem("cartItems")) 
       : [],
-      cartItems: [],
+      // cartItems: [],
       size: "",
       sort: ""
     }
@@ -31,7 +31,7 @@ class App extends React.Component {
     this.setState({
       cartItems: cartItems.filter( x => x._id !== product._id)
     })
- 
+
     localStorage.setItem(
       "cartItems,", 
       JSON.stringify(this.state.cartItems
@@ -102,38 +102,40 @@ class App extends React.Component {
 
   render () {
     return (
-      <div className="grid-container">
-        <header>
-          <a href="/"> React Shopping</a>
-        </header>
-        <main>
-          <div className="content"> 
-            <div className="main">
-              <Filter 
-                count={this.state.products.length}
-                size={this.state.size}
-                sort={this.state.sort}
-                filterProducts = {this.filterProducts}
-                sortProducts = {this.sortProducts}
-              />
-              <Products 
-                products={this.state.products} 
-                addToCart={this.addToCart}
-              />
+      <Provider store={store}>
+        <div className="grid-container">
+          <header>
+            <a href="/"> React Shopping</a>
+          </header>
+          <main>
+            <div className="content"> 
+              <div className="main">
+                <Filter 
+                  count={this.state.products.length}
+                  size={this.state.size}
+                  sort={this.state.sort}
+                  filterProducts = {this.filterProducts}
+                  sortProducts = {this.sortProducts}
+                />
+                <Products 
+                  products={this.state.products} 
+                  addToCart={this.addToCart}
+                />
+              </div>
+              <div className="sidebar">
+                <Cart 
+                  cartItems={this.state.cartItems}
+                  removeFromCart={this.removeFromCart}
+                  createOrder={this.createOrder}
+                />
+              </div>
             </div>
-            <div className="sidebar">
-              <Cart 
-                cartItems={this.state.cartItems}
-                removeFromCart={this.removeFromCart}
-                createOrder={this.createOrder}
-              />
-            </div>
-          </div>
-        </main> 
-        <footer>
-          All right is reserved
-        </footer>
-      </div>
+          </main> 
+          <footer>
+            All right is reserved
+          </footer>
+        </div>
+      </Provider>
     );
   }
 }
